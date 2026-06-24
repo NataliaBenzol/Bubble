@@ -1,0 +1,29 @@
+[extraction]
+brightness_threshold = 10
+min_nonblack_ratio = 0.05
+max_frames_per_video = 4000
+
+[train]
+data_dir = "resized_frames"
+output_dir = "."
+architectures = ["resnet50", "vgg16"]
+batch_size = 32
+num_epochs = 50
+learning_rate = 0.001
+image_size = [224, 224]
+num_classes = 7
+random_state = 42
+patience = 10
+
+[filter]
+black_threshold = 10
+min_nonblack_ratio = 0.02
+bubble_threshold = 80
+min_bubble_area = 50
+min_bubble_count = 3
+
+[resize]
+width = 224
+height = 224
+keep_aspect_ratio = true
+padding_color = [0, 0, 0]
